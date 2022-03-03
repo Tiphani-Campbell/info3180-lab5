@@ -68,6 +68,12 @@ def secure_page():
     #Render sites secure page
     return render_template('secure_page.html')
 
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('Logged out.', 'danger')
+    return redirect(url_for('home'))
 
 
 
